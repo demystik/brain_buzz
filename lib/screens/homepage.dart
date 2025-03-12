@@ -1,3 +1,4 @@
+import 'package:brain_buzz/screens/quiz_page.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
@@ -55,7 +56,9 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(5),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/quizpage');
+                            },
                             child: const Text(
                               'Play Now!',
                               style: TextStyle(

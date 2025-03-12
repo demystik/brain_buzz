@@ -10,6 +10,8 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const SafeArea(child: Scaffold(
+      body: Center(child: Text("Quiz Page"),),
+    ), );
   }
 }

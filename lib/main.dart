@@ -1,4 +1,5 @@
 import 'package:brain_buzz/screens/homepage.dart';
+import 'package:brain_buzz/screens/quiz_page.dart';
 import 'package:brain_buzz/screens/test_page.dart';
 import 'package:brain_buzz/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/' : (context) => const WelcomeScreen(),
         '/homepage' : (context) => const HomePage(),
-        '/quizpage'
+        '/quizpage' : (context) => const QuizPage()
       },
       debugShowCheckedModeBanner: false,
     );
