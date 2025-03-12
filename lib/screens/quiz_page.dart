@@ -67,6 +67,9 @@ class _QuizPageState extends State<QuizPage> {
 
   elevationButton(String option) {
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+
+      ),
       onPressed: (){},
       child: Text(option),
     );
