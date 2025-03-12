@@ -1,3 +1,5 @@
+import 'package:brain_buzz/screens/homepage.dart';
+import 'package:brain_buzz/screens/test_page.dart';
 import 'package:brain_buzz/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +13,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      // home: TestPage(),
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => const WelcomeScreen(),
+        '/homepage' : (context) => const HomePage(),
+        '/quizpage'
+      },
       debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
     );
   }
 }
