@@ -47,13 +47,15 @@ class _QuizPageState extends State<QuizPage> {
                       ),
                       const Text('Who is making the web standard?'),
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           elevationButton('Option 1'),
                           elevationButton('Option 2'),
                           elevationButton('Option 3'),
                           elevationButton('Option 4'),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
