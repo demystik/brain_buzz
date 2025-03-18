@@ -161,7 +161,16 @@ class _TestPageState extends State<TestPage> {
               decoration: const InputDecoration(
                   labelText: 'Search Here', suffixIcon: Icon(Icons.search)),
             ),
-            const SizedBox(height: 20),
+            SizedBox(
+              height: 50,
+              child: Builder(
+                builder: (BuildContext context) => ElevatedButton(
+                    onPressed: () => showMySnackBar(context),
+                    child: const Text('snackBar button'),
+                ),
+              ),
+
+            ),
             Expanded(
               child: ListView.builder(
                   itemCount: foundUsers.length,
@@ -174,4 +183,23 @@ class _TestPageState extends State<TestPage> {
       ),
     );
   }
+
+  showMySnackBar(BuildContext myContext) {
+    var snackBar = SnackBar(
+      content:const Text('This is the snackBar'),
+      backgroundColor: Colors.green,
+      duration: const Duration(seconds: 3),
+      shape: const StadiumBorder(),
+      margin: const EdgeInsets.all(5),
+      behavior: SnackBarBehavior.floating,
+      elevation: 0,
+      action: SnackBarAction(label: "Click Me", onPressed: (){}),
+    );
+    ScaffoldMessenger.of(myContext)
+      // .hideCurrentSnackBar()
+      // ..removeCurrentSnackBar()
+      .showSnackBar(snackBar);
+  }
+
+
 }

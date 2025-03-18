@@ -1,4 +1,4 @@
-import 'package:brain_buzz/screens/quiz_page.dart';
+// import 'package:brain_buzz/screens/quiz_page.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
@@ -26,7 +26,10 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
-                // Above Banner
+                /*
+                * This is Top Banner Widget layout, Contains
+                * Test your knowledge, some write up and 'play now!' button                *
+                */
                 Expanded(
                   flex: 1,
                   child: Padding(
@@ -50,20 +53,22 @@ class _HomePageState extends State<HomePage> {
                               ' lorem ipsum lorem ipsum  \n '
                               'lorem ipsum ',
                               style: kBannerTextSmall),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/quizpage');
-                            },
-                            child: const Text(
-                              'Play Now!',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
-                            ),
+                          Builder(
+                            builder: (context) {
+                              return ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                ),
+                                onPressed: () => showSnackBar(context),
+                                child: const Text(
+                                  'Play Now!',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 16),
+                                ),
+                              );
+                            }
                           ),
                         ],
                       ),
@@ -128,15 +133,18 @@ class _HomePageState extends State<HomePage> {
                                 itemCount: foundCategories.length,
                                 itemBuilder: (context, index) {
                                   return Column(
-                                    children: [
-                                      eachLanguage(index, true),
-                                      Text(
-                                        foundCategories[index]['lang'],
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  );
+                                      children: [
+                                        GestureDetector(
+                                          onTap: () => Navigator.pushNamed(context, '/quizpage', arguments: foundCategories[index]),
+                                            child: eachLanguage(index, true),
+                                        ),
+                                        Text(
+                                          foundCategories[index]['lang'],
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
+                                    );
                                 },
                               ),
                             ),
@@ -223,5 +231,17 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       foundCategories = result;
     });
+  }
+
+  showSnackBar(BuildContext context) {
+    var snackBar = const SnackBar(
+        content: Text("Please select a language to take quiz on"),
+      duration: Duration(seconds: 2),
+      backgroundColor: Colors.deepPurple,
+      behavior: SnackBarBehavior.floating,
+      shape: StadiumBorder(),
+    );
+    ScaffoldMessenger.of(context).removeCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
