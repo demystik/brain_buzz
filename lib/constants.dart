@@ -52,14 +52,11 @@ List<Map<String, dynamic>> allCategories = [
   {"lang":'java', 'icon' : '$imagePath/java.png'},
   {"lang":'C', 'icon' : '$imagePath/c.png'},
   {"lang":'C++', 'icon' : '$imagePath/c++.png'},
-  // {"lang":'C#', 'icon' : '🙌'},
-  // {"lang":'dart', 'icon' : '🎇'},
   {"lang":'react', 'icon' : '$imagePath/react.png'},
   {"lang":'php', 'icon' : '$imagePath/php.png'},
   {"lang":'swift', 'icon' : '$imagePath/swift.png'},
   {"lang":'go', 'icon' : '$imagePath/go.png'},
   {"lang":'ruby', 'icon' : '$imagePath/ruby.png'},
-  // {"lang":'kotlin', 'icon' : '🎗️'},
 ];
 
 var ktextFieldInputDeco = InputDecoration(
